@@ -143,6 +143,7 @@
     .filter-btn { padding: 9px 18px; border-radius: var(--radius-full); border: 1px solid var(--border); font-family: var(--font-title); font-size: .82rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); background: var(--bg-card); }
     .filter-btn.active { background: var(--btn-bg); color: var(--btn-text); border-color: var(--btn-bg); }
     .grid-products { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .grid-products .card[hidden] { display: none; }
     .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-card); transition: transform .4s cubic-bezier(.175,.885,.32,1.275), box-shadow .4s ease, border-color .4s ease; position: relative; }
     @media (hover: hover) {
       .card:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,.6); border-color: var(--border-hover); z-index: 10; }
@@ -265,7 +266,7 @@
   <header class="header">
     <div class="container header-content">
       <a href="#inicio" class="brand" aria-label="Unjui - Início">
-        <img src="assets/logo.png" alt="Logo Unjui" class="brand-logo-img" width="71" height="40">
+        <img src="assets/logo-white-transparent.png" alt="Logo Unjui" class="brand-logo-img" width="71" height="40">
         <span>UNJUI</span>
       </a>
       <nav class="nav-desktop" aria-label="Navegação principal">
@@ -375,13 +376,13 @@
           <p class="section-desc">Equipamentos forjados para a guerra do tatame. Escolha o seu modelo, selecione seu tamanho e inicie o pedido direto pelo WhatsApp.</p>
         </div>
         <div class="filters">
-          <button type="button" class="filter-btn active">Todos (2)</button>
-          <button type="button" class="filter-btn">Rash Guards (2)</button>
+          <button type="button" class="filter-btn active" data-filter="todos" onclick="filtrarProdutos('todos', this)">Todos (2)</button>
+          <button type="button" class="filter-btn" data-filter="rash-guards" onclick="filtrarProdutos('rash-guards', this)">Rash Guards (2)</button>
         </div>
 
         <div class="grid-products">
           <!-- SÃO JORGE -->
-          <article class="card">
+          <article class="card" data-category="rash-guards">
             <div class="card-media has-tabs">
               <span class="card-badge red">Edição São Jorge</span>
               <img id="img-sao-jorge" src="assets/sao-jorge-frente.png" alt="Rash Guard Unjui São Jorge" class="card-img" loading="eager" decoding="async" onclick="abrirLightbox(this.src)" title="Clique para ampliar">
@@ -412,7 +413,7 @@
           </article>
 
           <!-- MANTO DIVINO -->
-          <article class="card">
+          <article class="card" data-category="rash-guards">
             <div class="card-media">
               <span class="card-badge gold">Destaque Principal</span>
               <img src="assets/manto-divino.jpg" alt="Rash Guard Unjui Manto Divino" class="card-img" loading="eager" decoding="async" onclick="abrirLightbox(this.src)" title="Clique para ampliar">
@@ -639,6 +640,19 @@
       img.src = imgSrc;
       btn.parentElement.querySelectorAll(".view-tab-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
+    }
+
+    /* Filtros da vitrine */
+    function filtrarProdutos(categoria, btn) {
+      document.querySelectorAll(".filter-btn").forEach(botao => {
+        botao.classList.toggle("active", botao === btn);
+        botao.setAttribute("aria-pressed", String(botao === btn));
+      });
+
+      document.querySelectorAll(".grid-products .card").forEach(card => {
+        const exibir = categoria === "todos" || card.dataset.category === categoria;
+        card.hidden = !exibir;
+      });
     }
 
     /* Destaque (hero) alternando a cada 5 segundos */
