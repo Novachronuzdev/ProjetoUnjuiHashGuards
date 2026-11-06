@@ -194,3 +194,52 @@ window.addEventListener("keydown", (e) => {
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("year").textContent = new Date().getFullYear();
 });
+
+// --- SISTEMA DE GALERIA NO LIGHTBOX ---
+let lightboxImagens = [];
+let lightboxIndexAtual = 0;
+
+function abrirGaleriaLightbox(imagens, imagemAtualClicada) {
+  lightboxImagens = imagens;
+  
+  // Identifica qual imagem estava na tela na hora do clique (Frente ou Costas)
+  const nomeArquivoAtual = imagemAtualClicada.split('/').pop();
+  lightboxIndexAtual = imagens.findIndex(img => img.includes(nomeArquivoAtual));
+  
+  // Prevenção de erro
+  if (lightboxIndexAtual === -1) lightboxIndexAtual = 0;
+  
+  atualizarImagemLightbox();
+  
+  // Exibe o lightbox
+  document.getElementById('lightbox').style.display = 'flex'; 
+  
+  // Mostra as setinhas de "próximo/anterior" apenas se houver mais de 1 foto
+  const setas = document.querySelectorAll('.lightbox-nav');
+  if (imagens.length > 1) {
+    setas.forEach(seta => seta.style.display = 'flex');
+  } else {
+    setas.forEach(seta => seta.style.display = 'none');
+  }
+}
+
+function mudarImagemLightbox(direcao, event) {
+  // Evita que o clique na seta vaze pro fundo e feche o lightbox sem querer
+  event.stopPropagation(); 
+  
+  lightboxIndexAtual += direcao;
+  
+  // Efeito carrossel infinito (vai da última para a primeira e vice-versa)
+  if (lightboxIndexAtual >= lightboxImagens.length) {
+    lightboxIndexAtual = 0;
+  } else if (lightboxIndexAtual < 0) {
+    lightboxIndexAtual = lightboxImagens.length - 1;
+  }
+  
+  atualizarImagemLightbox();
+}
+
+function atualizarImagemLightbox() {
+  document.getElementById('lightbox-img').src = lightboxImagens[lightboxIndexAtual];
+}
+

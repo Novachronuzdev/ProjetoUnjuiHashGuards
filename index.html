@@ -150,7 +150,7 @@
           <article class="card" data-category="rash-guards">
             <div class="card-media has-tabs">
               <span class="card-badge red">Edição São Jorge</span>
-              <img id="img-sao-jorge" src="assets/sao-jorge-frente.png" alt="Rash Guard Unjui São Jorge" class="card-img" loading="eager" decoding="async" onclick="abrirLightbox(this.src)" title="Clique para ampliar">
+              <img id="img-sao-jorge" src="assets/sao-jorge-frente.png" alt="Rash Guard Unjui São Jorge" class="card-img" loading="eager" decoding="async" onclick="abrirGaleriaLightbox(['assets/sao-jorge-frente.png', 'assets/sao-jorge-verso.jpg'], this.src)" title="Clique para ampliar">
               <div class="card-view-tabs">
                 <button type="button" class="view-tab-btn active" onclick="trocarImagemCard('img-sao-jorge', 'assets/sao-jorge-frente.png', this)">Frente</button>
                 <button type="button" class="view-tab-btn" onclick="trocarImagemCard('img-sao-jorge', 'assets/sao-jorge-verso.jpg', this)">Costas</button>
@@ -161,10 +161,16 @@
               <h3 class="card-title">São Jorge</h3>
               <p class="card-desc">Inspirada no Santo Guerreiro. Brasão papal frontal com as chaves cruzadas e estampa dorsal de São Jorge derrotando o dragão.</p>
               
-              <!-- INFORMAÇÃO DE ENTREGA -->
-              <div class="card-delivery" style="font-size: 0.85rem; color: var(--gold, #d4af37); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; font-weight: 500;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>Entrega em Governador Valadares - MG e região</span>
+              <!-- INFORMAÇÕES DE ENTREGA E PAGAMENTO -->
+              <div class="card-info-group" style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px;">
+                <div class="card-delivery" style="font-size: 0.85rem; color: var(--gold, #d4af37); display: flex; align-items: center; gap: 6px; font-weight: 500;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Entrega em Governador Valadares - MG e região</span>
+                </div>
+                <div class="card-payment" style="font-size: 0.85rem; color: var(--gold, #d4af37); display: flex; align-items: center; gap: 6px; font-weight: 500;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                  <span>Aceitamos pagamento em Pix ou Dinheiro</span>
+                </div>
               </div>
 
               <div class="card-sizes">
@@ -195,10 +201,16 @@
               <h3 class="card-title">Manto Divino</h3>
               <p class="card-desc">A armadura sagrada da sua evolução no tatame. Estampa sacra em sublimação de alta resolução com Ostensório e Pomba da Paz, proteção UV50+.</p>
               
-              <!-- INFORMAÇÃO DE ENTREGA -->
-              <div class="card-delivery" style="font-size: 0.85rem; color: var(--gold, #d4af37); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; font-weight: 500;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>Entrega em Governador Valadares - MG e região</span>
+              <!-- INFORMAÇÕES DE ENTREGA E PAGAMENTO -->
+              <div class="card-info-group" style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px;">
+                <div class="card-delivery" style="font-size: 0.85rem; color: var(--gold, #d4af37); display: flex; align-items: center; gap: 6px; font-weight: 500;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <span>Entrega em Governador Valadares - MG e região</span>
+                </div>
+                <div class="card-payment" style="font-size: 0.85rem; color: var(--gold, #d4af37); display: flex; align-items: center; gap: 6px; font-weight: 500;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                  <span>Aceitamos pagamento em Pix ou Dinheiro</span>
+                </div>
               </div>
 
               <div class="card-sizes">
@@ -345,9 +357,13 @@
 
   <div class="toast" id="toast"></div>
 
-  <div id="lightbox" class="lightbox-overlay" onclick="fecharLightbox(event)">
+ <div id="lightbox" class="lightbox-overlay" onclick="fecharLightbox(event)">
     <button type="button" class="lightbox-close" onclick="fecharLightbox(event, true)" title="Fechar">✕</button>
+    
+    <!-- Novas setas de navegação -->
+    <button type="button" class="lightbox-nav prev" onclick="mudarImagemLightbox(-1, event)">&#10094;</button>
     <img id="lightbox-img" class="lightbox-img" src="" alt="Imagem ampliada">
+    <button type="button" class="lightbox-nav next" onclick="mudarImagemLightbox(1, event)">&#10095;</button>
   </div>
 
   <script src="script.js" defer></script>
